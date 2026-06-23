@@ -26,7 +26,7 @@ describe('ParseArrayPipe', () => {
 
           return expect(
             target.transform(undefined, {} as ArgumentMetadata),
-          ).to.to.be.rejectedWith(BadRequestException);
+          ).to.be.rejectedWith(BadRequestException);
         });
       });
       describe('and optional enabled', () => {
@@ -70,6 +70,19 @@ describe('ParseArrayPipe', () => {
             pipe.transform({}, {} as ArgumentMetadata),
           ).to.be.rejectedWith(BadRequestException);
         });
+      });
+      it('should not treat 0 and false as missing values', async () => {
+        target = new ParseArrayPipe();
+
+        await expect(
+          target.transform(0, {} as ArgumentMetadata),
+        ).to.be.rejectedWith(BadRequestException);
+        await expect(
+          target.transform(false, {} as ArgumentMetadata),
+        ).to.be.rejectedWith(BadRequestException);
+        expect(
+          await target.transform('', {} as ArgumentMetadata),
+        ).to.deep.equal(['']);
       });
     });
 
