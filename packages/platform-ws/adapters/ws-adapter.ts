@@ -158,7 +158,7 @@ export class WsAdapter extends AbstractWsAdapter {
   ): Observable<any> {
     try {
       const message = this.messageParser(buffer.data);
-      if (!message) {
+      if (message == null) {
         return EMPTY;
       }
       const messageHandler = handlersMap.get(message.event)!;
