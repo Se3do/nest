@@ -1030,7 +1030,6 @@ function convertInspectToJSON(inspectOutput: string) {
   try {
     return JSON.parse(jsonLikeString);
   } catch (error) {
-    console.error('Error parsing the modified inspect output:', error);
     throw error;
   }
 }
