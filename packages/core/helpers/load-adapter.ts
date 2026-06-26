@@ -17,6 +17,6 @@ export function loadAdapter(
     return loaderFn ? loaderFn() : require(defaultPlatform);
   } catch (e) {
     logger.error(MISSING_REQUIRED_DEPENDENCY(defaultPlatform, transport));
-    process.exit(1);
+    throw new Error(MISSING_REQUIRED_DEPENDENCY(defaultPlatform, transport));
   }
 }

@@ -15,6 +15,6 @@ export function loadPackage(
   } catch (e) {
     logger.error(MISSING_REQUIRED_DEPENDENCY(packageName, context));
     Logger.flush();
-    process.exit(1);
+    throw new Error(MISSING_REQUIRED_DEPENDENCY(packageName, context));
   }
 }
