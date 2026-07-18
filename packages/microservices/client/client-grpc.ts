@@ -32,7 +32,7 @@ export class ClientGrpcProxy
   extends ClientProxy<never, never>
   implements ClientGrpc
 {
-  protected readonly logger = new Logger(ClientProxy.name);
+  protected readonly logger = new Logger(ClientGrpcProxy.name);
   protected readonly clients = new Map<string, any>();
   protected readonly url: string;
   protected grpcClients: GrpcClient[] = [];

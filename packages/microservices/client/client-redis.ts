@@ -26,7 +26,7 @@ let redisPackage = {} as any;
  * @publicApi
  */
 export class ClientRedis extends ClientProxy<RedisEvents, RedisStatus> {
-  protected readonly logger = new Logger(ClientProxy.name);
+  protected readonly logger = new Logger(ClientRedis.name);
   protected readonly subscriptionsCount = new Map<string, number>();
   protected pubClient: Redis;
   protected subClient: Redis;

@@ -26,7 +26,7 @@ type MqttClient = any;
  * @publicApi
  */
 export class ClientMqtt extends ClientProxy<MqttEvents, MqttStatus> {
-  protected readonly logger = new Logger(ClientProxy.name);
+  protected readonly logger = new Logger(ClientMqtt.name);
   protected readonly subscriptionsCount = new Map<string, number>();
   protected readonly url: string;
   /* eslint-disable @typescript-eslint/no-redundant-type-constituents */

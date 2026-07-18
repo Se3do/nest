@@ -55,7 +55,7 @@ const REPLY_QUEUE = 'amq.rabbitmq.reply-to';
  * @publicApi
  */
 export class ClientRMQ extends ClientProxy<RmqEvents, RmqStatus> {
-  protected readonly logger = new Logger(ClientProxy.name);
+  protected readonly logger = new Logger(ClientRMQ.name);
   protected connection$: ReplaySubject<any>;
   protected connectionPromise: Promise<void>;
   protected client: AmqpConnectionManager | null = null;
